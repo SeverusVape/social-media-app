@@ -16,7 +16,7 @@ const Upload = () => {
     >();
     const [wrongFileType, setWrongFileType] = useState(false);
     const [caption, setCaption] = useState("");
-    const [category, setCategory] = useState(topics[0]);
+    const [category, setCategory] = useState(topics[0].name);
     const [savingPost, setSavingPost] = useState(false);
     const { userProfile }: { userProfile: any } = useAuthStore();
     const router = useRouter();
@@ -49,10 +49,10 @@ const Upload = () => {
                 caption,
                 video: {
                     _type: "file",
-                },
-                asset: {
-                    _type: "reference",
-                    _ref: videoAsset?._id,
+                    asset: {
+                        _type: "reference",
+                        _ref: videoAsset?._id,
+                    },
                 },
                 userId: userProfile?._id,
                 postedBy: {
@@ -77,7 +77,7 @@ const Upload = () => {
                             Post a video to your account
                         </p>
                     </div>
-                    <div className="border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100">
+                    <div className="border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[460px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100">
                         {isLoading ? (
                             <p>Uploading...</p>
                         ) : (
