@@ -73,7 +73,7 @@ const VideoCard: NextPage<IProps> = ({
                         setIsHover(false);
                     }}
                 >
-                    <Link href="/">
+                    <Link href={`/detail/${_id}`}>
                         <video
                             ref={videoRef}
                             loop
